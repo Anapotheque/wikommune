@@ -22,7 +22,16 @@
 	</developers>
 
 	<build>
+
 		<finalName>wikommune-${project.version}</finalName>
+
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+			</extension>
+		</extensions> 
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -32,7 +41,22 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>e-gloo</id>
+			<name>e-gloo mvn repository</name>
+			<url>scp://www.e-gloo.fr/${e-gloo-mvnrepoPath}</url>
+		</repository>
+	</distributionManagement>
+
+	<scm>
+		<url>https://code.google.com/p/wikommune/</url>
+		<connection>scm:git:https://code.google.com/p/wikommune/</connection>
+		<developerConnection>scm:git:https://cedric.desire@code.google.com/p/wikommune/ </developerConnection>
+	</scm>
 
 	<profiles>
 		<profile>
