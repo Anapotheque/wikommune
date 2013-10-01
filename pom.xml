@@ -30,17 +30,22 @@
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ssh</artifactId>
 			</extension>
-		</extensions> 
+		</extensions>
 
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<configuration>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-		</plugins>
+		<pluginManagement>
+			<plugins>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-plugin.version}</version>
+					<configuration>
+						<encoding>${encoding}</encoding>
+					</configuration>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
 
 	</build>
 
@@ -55,7 +60,7 @@
 	<scm>
 		<url>https://code.google.com/p/wikommune/</url>
 		<connection>scm:git:https://code.google.com/p/wikommune/</connection>
-		<developerConnection>scm:git:https://cedric.desire@code.google.com/p/wikommune/ </developerConnection>
+		<developerConnection>scm:git:https://cedric.desire@code.google.com/p/wikommune/</developerConnection>
 	</scm>
 
 	<profiles>
@@ -89,7 +94,9 @@
 	</dependencies>
 
 	<properties>
-		<junit.version>3.8.1</junit.version>
+		<encoding>ISO-8859-15</encoding>
+		<junit.version>4.11</junit.version>
+		<maven-resources-plugin.version>2.6</maven-resources-plugin.version>
 	</properties>
 		
 </project>
