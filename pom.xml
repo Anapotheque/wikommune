@@ -4,7 +4,7 @@
 	<groupId>fr.egloo.wikommune</groupId>
 	<artifactId>wikommune</artifactId>
 	<packaging>pom</packaging>
-	<version>0.2-SNAPSHOT</version>
+	<version>0.2</version>
 	<name>wikommune</name>
 
 	<url>http://code.google.com/p/wikommune/</url>
