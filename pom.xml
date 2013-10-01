@@ -51,8 +51,10 @@
 
 	<distributionManagement>
 		<repository>
+			<!-- Attention : e-gloo est un serveur distant à déclarer dans settings.xml (connexion par clé ssh) -->
 			<id>e-gloo</id>
 			<name>e-gloo mvn repository</name>
+			<!-- Attention : e-gloo-mvnrepoPath (emplacement du repo maven sur le serveur distant) est à déclarer dans settings.xml (propriété cachée) -->
 			<url>scp://www.e-gloo.fr/${e-gloo-mvnrepoPath}</url>
 		</repository>
 	</distributionManagement>
@@ -60,7 +62,8 @@
 	<scm>
 		<url>https://code.google.com/p/wikommune/</url>
 		<connection>scm:git:https://code.google.com/p/wikommune/</connection>
-		<developerConnection>scm:git:https://cedric.desire@code.google.com/p/wikommune/</developerConnection>
+		<!-- Attention : Mettre à jour son .netrc pour se connecter automatiquement avec l'identifiant et le mot de passe google -->
+		<developerConnection>scm:git:https://code.google.com/p/wikommune/</developerConnection>
 	</scm>
 
 	<profiles>
