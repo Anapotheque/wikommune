@@ -55,6 +55,15 @@
 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-eclipse-plugin</artifactId>
+					<configuration>
+						<downloadSources>true</downloadSources>
+						<downloadJavadocs>true</downloadJavadocs>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
 					<configuration>
 						<mavenExecutorId>forked-path</mavenExecutorId>
@@ -109,7 +118,7 @@
 			<dependency>
 				<groupId>org.mongodb</groupId>
 				<artifactId>mongo-java-driver</artifactId>
-				<version>2.11.3</version>
+				<version>${mongo-java-driver.version}</version>
 			</dependency>
 
 			<dependency>
