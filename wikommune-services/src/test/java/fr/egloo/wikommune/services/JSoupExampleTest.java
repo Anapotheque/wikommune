@@ -21,5 +21,10 @@ public class JSoupExampleTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}	
+	}
+	
+	@Test
+	public void testBestOf() {
+		assertNotNull(Boolean.TRUE);
+	}
 }
