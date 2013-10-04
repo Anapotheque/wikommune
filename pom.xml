@@ -14,11 +14,19 @@
 	</organization>
 
 	<developers>
+
 		<developer>
 			<name>Désiré Cédric</name>
 			<id>drix</id>
 			<email>cedric.desire@gmail.com</email>
 		</developer>
+
+		<developer>
+			<name>Malchiodi Franck</name>
+			<id>francky</id>
+			<email>malchiodi.franck@gmail.com</email>
+		</developer>
+
 	</developers>
 
 	<build>
@@ -108,6 +116,22 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<!-- Dépendances internes -->
+
+			<dependency>
+				<groupId>fr.egloo.wikommune</groupId>
+				<artifactId>wikommune-services</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>fr.egloo.wikommune</groupId>
+				<artifactId>wikommune-persistence</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<!-- Dépendances externes -->
 
 			<dependency>
 				<groupId>org.jsoup</groupId>
