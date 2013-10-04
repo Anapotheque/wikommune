@@ -16,4 +16,13 @@
 		<finalName>wikommune-web</finalName>
 	</build>
 
+	<dependencies>
+
+		<dependency>
+			<groupId>fr.egloo.wikommune</groupId>
+			<artifactId>wikommune-services</artifactId>
+		</dependency>
+
+	</dependencies>
+
 </project>
