@@ -93,7 +93,7 @@
 		<snapshotRepository>
 			<id>e-gloo</id>
 			<name>e-gloo mvn snapshot repository</name>
-			<url>scp://www.e-gloo.fr/${e-gloo-mvnrepoPath}/snapshots</url>
+			<url>scp://www.e-gloo.fr/${e-gloo-mvnrepoPath}/snapshot</url>
 		</snapshotRepository>
 	</distributionManagement>
 
