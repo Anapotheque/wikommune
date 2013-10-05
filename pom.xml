@@ -146,6 +146,12 @@
 			</dependency>
 
 			<dependency>
+				<groupId>de.flapdoodle.embed</groupId>
+				<artifactId>de.flapdoodle.embed.mongo</artifactId>
+				<version>${embed-mongo.version}</version>
+			</dependency>
+
+			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>${junit.version}</version>
@@ -163,12 +169,17 @@
 	</dependencies>
 
 	<properties>
+
 		<jvm.version>1.6</jvm.version>
 		<jvm.encoding>ISO-8859-15</jvm.encoding>
+
 		<maven-resources-plugin.version>2.6</maven-resources-plugin.version>
+
 		<mongo-java-driver.version>2.11.3</mongo-java-driver.version>
+		<embed-mongo.version>1.37</embed-mongo.version>
 		<jsoup.version>1.7.2</jsoup.version>
 		<junit.version>4.11</junit.version>
+
 	</properties>
 		
 </project>
