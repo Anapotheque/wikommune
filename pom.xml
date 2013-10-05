@@ -37,6 +37,7 @@
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ssh</artifactId>
+				<version>${maven-wagon-ssh.version}</version>
 			</extension>
 		</extensions>
 
@@ -85,12 +86,15 @@
 
 	<distributionManagement>
 		<repository>
-			<!-- Attention : e-gloo est un serveur distant à déclarer dans settings.xml (connexion par clé ssh) -->
 			<id>e-gloo</id>
-			<name>e-gloo mvn repository</name>
-			<!-- Attention : e-gloo-mvnrepoPath (emplacement du repo maven sur le serveur distant) est à déclarer dans settings.xml (propriété cachée) -->
-			<url>scp://www.e-gloo.fr/${e-gloo-mvnrepoPath}</url>
+			<name>e-gloo mvn releases repository</name>
+			<url>scp://www.e-gloo.fr/${e-gloo-mvnrepoPath}/releases</url>
 		</repository>
+		<snapshotRepository>
+			<id>e-gloo</id>
+			<name>e-gloo mvn snapshot repository</name>
+			<url>scp://www.e-gloo.fr/${e-gloo-mvnrepoPath}/snapshots</url>
+		</snapshotRepository>
 	</distributionManagement>
 
 	<scm>
@@ -174,6 +178,7 @@
 		<jvm.encoding>ISO-8859-15</jvm.encoding>
 
 		<maven-resources-plugin.version>2.6</maven-resources-plugin.version>
+		<maven-wagon-ssh.version>2.5</maven-wagon-ssh.version>
 
 		<mongo-java-driver.version>2.11.3</mongo-java-driver.version>
 		<embed-mongo.version>1.37</embed-mongo.version>
