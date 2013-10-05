@@ -1,4 +1,4 @@
-package fr.egloo.wikommune.persistence;
+package fr.egloo.wikommune.persistence.embedmongo.crud;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

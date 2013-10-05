@@ -1,4 +1,4 @@
-package fr.egloo.wikommune.persistence;
+package fr.egloo.wikommune.persistence.embedmongo.crud;
 
 import java.io.IOException;
 
