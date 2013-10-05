@@ -1,5 +1,7 @@
 package fr.egloo.wikommune.persistence;
 
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.Before;
 
@@ -23,21 +25,26 @@ import de.flapdoodle.embed.process.runtime.Network;
  */
 public class EmbeddedMongo {
 
-	/** Nom de la base de donnée servant pour les tests. */
-	protected static final String DATABASE_NAME = "embedded";
+	/** Nom de la base de données servant pour les tests. */
+	protected static final String DATABASE_NAME = "testDB";
+
 	/** Port du serveur Mongo embarqué lancé. */
 	private static final int EMBEDDED_MONGO_PORT = 12345;
+
 	/** Démon Mongo embarqué. */
 	private MongodExecutable mongodExe;
+
 	/** Client d'accès à la base Mongo embarquée. */
 	private Mongo mongo;
 
 	/**
 	 * Exécutée avant chaque tests des classes héritants de celle-ci.
-	 * @throws Exception Exception lors du démarrage du démon.
+	 * 
+	 * @throws IOException
+	 *             Erreur d'accès à la base Mongo embarquée.
 	 */
 	@Before
-	public final void beforeEach() throws Exception {
+	public final void beforeEach() throws IOException {
 
 		int port = EMBEDDED_MONGO_PORT;
 		IMongodConfig mongodConfig = new MongodConfigBuilder()
@@ -46,23 +53,20 @@ public class EmbeddedMongo {
 
 		MongodStarter runtime = MongodStarter.getDefaultInstance();
 
-		MongodExecutable mongodExecutable = null;
-
-		mongodExecutable = runtime.prepare(mongodConfig);
-		mongodExecutable.start();
+		mongodExe = runtime.prepare(mongodConfig);
+		mongodExe.start();
 		mongo = new MongoClient("localhost", port);
 	}
 
 	/**
 	 * Exécutée après chaque tests des classes héritants de celle-ci.
-	 * @throws Exception Exception lors de la fermeture du démon.
 	 */
 	@After
-	public final void afterEach() throws Exception {
+	public final void afterEach() {
 
 		if (this.mongodExe != null) {
-			this.mongodExe.stop();
 			this.mongo.close();
+			this.mongodExe.stop();
 		}
 	}
 
