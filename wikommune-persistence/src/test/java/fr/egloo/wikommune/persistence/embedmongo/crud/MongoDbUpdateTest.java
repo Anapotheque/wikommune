@@ -29,7 +29,7 @@ public class MongoDbUpdateTest extends EmbedMongo {
 	private DBCollection dbCollection;
 
 	/**
-	 * Collection associée à la table private DBCollection dbCollection.
+	 * Collection associée à la table.
 	 */
 	private void initCollection() {
 

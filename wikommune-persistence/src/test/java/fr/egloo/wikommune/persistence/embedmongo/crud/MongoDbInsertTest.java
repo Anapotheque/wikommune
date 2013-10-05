@@ -37,7 +37,7 @@ public class MongoDbInsertTest extends EmbedMongo {
 	private DBCollection dbCollection;
 
 	/**
-	 * Collection associée à la table private DBCollection dbCollection.
+	 * Collection associée à la table.
 	 */
 	private void initCollection() {
 		this.dbCollection = getMongo().getDB(DATABASE_NAME).createCollection(
