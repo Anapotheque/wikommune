@@ -1,4 +1,4 @@
-package fr.egloo.wikommune.persistence.embedmongo.crud;
+package fr.egloo.wikommune.persistence.embedmongo;
 
 import java.io.IOException;
 
@@ -23,7 +23,7 @@ import de.flapdoodle.embed.process.runtime.Network;
  * 
  * @author cedric
  */
-public class EmbeddedMongo {
+public class EmbedMongo {
 
 	/** Nom de la base de données servant pour les tests. */
 	protected static final String DATABASE_NAME = "testDB";

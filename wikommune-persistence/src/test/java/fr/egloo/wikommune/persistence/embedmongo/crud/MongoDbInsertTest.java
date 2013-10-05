@@ -11,6 +11,10 @@ import org.junit.Test;
 import com.mongodb.BasicDBObject;
 import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.DBCollection;
+import com.mongodb.DBObject;
+import com.mongodb.util.JSON;
+
+import fr.egloo.wikommune.persistence.embedmongo.EmbedMongo;
 
 /**
  * 
@@ -21,7 +25,7 @@ import com.mongodb.DBCollection;
  * 
  * @author cedric
  */
-public class MongoDbInsertTest extends EmbeddedMongo {
+public class MongoDbInsertTest extends EmbedMongo {
 
 	/** Nombre de pages du livre "La malédiction de l'anneau". */
 	private static final int NB_PAGES_MALEDICTION_DE_L_ANNEAU = 509;
@@ -131,18 +135,14 @@ public class MongoDbInsertTest extends EmbeddedMongo {
 
 		initCollection();
 
-		Map<String, Object> documentMap = new HashMap<String, Object>();
-		documentMap.put("bibliothèque", "google play");
-		documentMap.put("titre", "La malédiction de l'anneau");
+		String json = "{\"bibliothèque\" : \"google play\","
+				+ "\"titre\" : \"La malédiction de l'anneau\","
+				+ "\"detail\" : {\"pages\" : 509,"
+				+ "\"auteur\" : \"Edouard Brasey\", \"bd\" : \"false\"}}}";
 
-		Map<String, Object> documentMapDetail = new HashMap<String, Object>();
-		documentMapDetail.put("pages", NB_PAGES_MALEDICTION_DE_L_ANNEAU);
-		documentMapDetail.put("auteur", "Edouard Brasey");
-		documentMapDetail.put("bd", "false");
+		DBObject dbObject = (DBObject) JSON.parse(json);
 
-		documentMap.put("detail", documentMapDetail);
-
-		dbCollection.insert(new BasicDBObject(documentMap));
+		dbCollection.insert(dbObject);
 
 		verifyCollection();
 	}
