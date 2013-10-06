@@ -12,17 +12,19 @@ import com.mongodb.util.JSON;
 
 import fr.egloo.wikommune.persistence.embedmongo.EmbedMongo;
 
+//@formatter:off
 /**
  * 
  * Différentes manières de mise à jour des 3 enregistrements suivants dans
  * MongoDb.
  * 
- * { "hosting" : "hostA", "type" : "vps", "clients" : 1000 }, { "hosting" :
- * "hostB", "type" : "dedicated server", "clients" : 100 }, { "hosting" :
- * "hostC", "type" : "vps", "clients" : 900 }
+ * { "hosting" : "hostA", "type" : "vps", "clients" : 1000 }, 
+ * { "hosting" : "hostB", "type" : "dedicated server", "clients" : 100 }, 
+ * { "hosting" : "hostC", "type" : "vps", "clients" : 900 }
  * 
  * @author cedric
  */
+//@formatter:on
 public class MongoDbUpdateTest extends EmbedMongo {
 
 	/** Nom de la table servant pour les tests. */
@@ -85,7 +87,7 @@ public class MongoDbUpdateTest extends EmbedMongo {
 	/**
 	 * Test de mise à jour MongoDB avec $inc. Mise à jour du document
 	 * "hosting:hostB" en ajoutant 10 à la valeur clients:100 : clients:100 -->
-	 * clients:110
+	 * clients:110.
 	 */
 	@Test
 	public final void testUpdateInc() {
@@ -108,7 +110,8 @@ public class MongoDbUpdateTest extends EmbedMongo {
 	}
 
 	/**
-	 * Test de mise à jour MongoDB avec Multi.
+	 * Test de mise à jour MongoDB avec Multi. Mise à jour de tous les documents
+	 * type:vps pour leur affecter la valeur clients:888.
 	 */
 	@Test
 	public final void testUpdateMulti() {

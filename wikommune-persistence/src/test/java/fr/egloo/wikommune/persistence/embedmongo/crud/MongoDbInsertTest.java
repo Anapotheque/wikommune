@@ -17,7 +17,6 @@ import com.mongodb.util.JSON;
 import fr.egloo.wikommune.persistence.embedmongo.EmbedMongo;
 
 /**
- * 
  * Différentes manières d'insertion de l'enregistrement suivant dans MongoDb.
  * 
  * { "bibliothèque" : "google play", "titre" : "La malédiction de l'anneau",

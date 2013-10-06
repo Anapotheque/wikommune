@@ -64,9 +64,9 @@ public class EmbedMongo {
 	@After
 	public final void afterEach() {
 
-		if (this.mongodExe != null) {
-			this.mongo.close();
-			this.mongodExe.stop();
+		if (mongodExe != null) {
+			mongo.close();
+			mongodExe.stop();
 		}
 	}
 
