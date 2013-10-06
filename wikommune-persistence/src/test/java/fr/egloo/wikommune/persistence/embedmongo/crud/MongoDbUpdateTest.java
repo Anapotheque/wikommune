@@ -1,6 +1,7 @@
 package fr.egloo.wikommune.persistence.embedmongo.crud;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
 
@@ -83,7 +84,7 @@ public class MongoDbUpdateTest extends EmbedMongo {
 
 	/**
 	 * Test de mise à jour MongoDB avec $inc. Mise à jour du document
-	 * "hosting:hostB" en ajoutant 10 à la valeur clients:100 ; clients:100 -->
+	 * "hosting:hostB" en ajoutant 10 à la valeur clients:100 : clients:100 -->
 	 * clients:110
 	 */
 	@Test
@@ -111,7 +112,20 @@ public class MongoDbUpdateTest extends EmbedMongo {
 	 */
 	@Test
 	public final void testUpdateMulti() {
+
 		initCollection();
-		// TODO
+
+		BasicDBObject updateQuery = new BasicDBObject().append("$set",
+				new BasicDBObject().append("clients", "888"));
+
+		BasicDBObject searchQuery = new BasicDBObject().append("type", "vps");
+
+		assertNotEquals("888",
+				dbCollection.find(searchQuery).next().get("clients"));
+
+		dbCollection.updateMulti(searchQuery, updateQuery);
+
+		assertEquals("888", dbCollection.find(searchQuery).next()
+				.get("clients"));
 	}
 }
