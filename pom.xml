@@ -27,6 +27,12 @@
 			<email>malchiodi.franck@gmail.com</email>
 		</developer>
 
+		<developer>
+			<name>Raballand Romain</name>
+			<id>roro</id>
+			<email>romain.raballand@gmail.com</email>
+		</developer>
+
 	</developers>
 
 	<build>
@@ -84,18 +90,18 @@
 
 	</build>
 
-	<distributionManagement>
-		<repository>
-			<id>e-gloo</id>
-			<name>e-gloo mvn releases repository</name>
-			<url>scp://www.e-gloo.fr${egloo.path}/releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>e-gloo</id>
-			<name>e-gloo mvn snapshot repository</name>
-			<url>scp://www.e-gloo.fr${egloo.path}/snapshot</url>
-		</snapshotRepository>
-	</distributionManagement>
+    <distributionManagement>
+            <repository>
+                    <id>e-gloo</id>
+                    <name>e-gloo mvn releases repository</name>
+                    <url>scp://www.e-gloo.fr/${e-gloo-mvnrepoPath}/releases</url>
+            </repository>
+            <snapshotRepository>
+                    <id>e-gloo</id>
+                    <name>e-gloo mvn snapshot repository</name>
+                    <url>scp://www.e-gloo.fr/${e-gloo-mvnrepoPath}/snapshot</url>
+            </snapshotRepository>
+    </distributionManagement>
 
 	<scm>
 		<url>https://code.google.com/p/wikommune/</url>
@@ -185,7 +191,6 @@
 		<embed-mongo.version>1.37</embed-mongo.version>
 		<jsoup.version>1.7.2</jsoup.version>
 		<junit.version>4.11</junit.version>
-                <egloo.path>/mnt/HD_a2/www/pages/mvnrepo</egloo.path>
 
 	</properties>
 		
