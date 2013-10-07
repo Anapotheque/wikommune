@@ -109,7 +109,7 @@
 		<!-- Attention : Mettre à jour son .netrc pour se connecter automatiquement avec l'identifiant et le mot de passe google -->
 		<developerConnection>scm:git:https://code.google.com/p/wikommune/</developerConnection>
 		<tag>HEAD</tag>
-  </scm>
+	</scm>
 
 	<profiles>
 		<profile>
