@@ -90,18 +90,18 @@
 
 	</build>
 
-    <distributionManagement>
-            <repository>
-                    <id>e-gloo</id>
-                    <name>e-gloo mvn releases repository</name>
-                    <url>scp://www.e-gloo.fr/${e-gloo-mvnrepoPath}/releases</url>
-            </repository>
-            <snapshotRepository>
-                    <id>e-gloo</id>
-                    <name>e-gloo mvn snapshot repository</name>
-                    <url>scp://www.e-gloo.fr/${e-gloo-mvnrepoPath}/snapshot</url>
-            </snapshotRepository>
-    </distributionManagement>
+	<distributionManagement>
+		<repository>
+			<id>e-gloo</id>
+			<name>e-gloo mvn releases repository</name>
+			<url>scp://www.e-gloo.fr/${e-gloo-mvnrepoPath}/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>e-gloo</id>
+			<name>e-gloo mvn snapshot repository</name>
+			<url>scp://www.e-gloo.fr/${e-gloo-mvnrepoPath}/snapshot</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<scm>
 		<url>https://code.google.com/p/wikommune/</url>
