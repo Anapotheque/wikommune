@@ -4,7 +4,7 @@
 	<groupId>fr.egloo.wikommune</groupId>
 	<artifactId>wikommune</artifactId>
 	<packaging>pom</packaging>
-	<version>0.6-SNAPSHOT</version>
+	<version>0.6</version>
 	<name>wikommune</name>
 
 	<url>http://code.google.com/p/wikommune/</url>
@@ -108,7 +108,7 @@
 		<connection>scm:git:https://code.google.com/p/wikommune/</connection>
 		<!-- Attention : Mettre à jour son .netrc pour se connecter automatiquement avec l'identifiant et le mot de passe google -->
 		<developerConnection>scm:git:https://code.google.com/p/wikommune/</developerConnection>
-		<tag>HEAD</tag>
+		<tag>wikommune-0.6</tag>
 	</scm>
 
 	<profiles>
