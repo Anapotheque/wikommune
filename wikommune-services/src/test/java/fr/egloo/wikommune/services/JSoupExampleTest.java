@@ -26,5 +26,6 @@ public class JSoupExampleTest {
 	@Test
 	public void testBestOf() {
 		assertNotNull(Boolean.TRUE);
+		assertNotNull(Boolean.FALSE);
 	}
 }
