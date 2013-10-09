@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.After;
 import org.junit.Test;
 
 import com.mongodb.BasicDBObject;
@@ -17,7 +18,8 @@ import com.mongodb.util.JSON;
 import fr.egloo.wikommune.persistence.embedmongo.EmbedMongo;
 
 /**
- * Différentes manières d'insertion de l'enregistrement suivant dans MongoDb.
+ * Différentes manières d'insertion des documents suivants dans une collection
+ * MongoDb.
  * 
  * { "bibliothèque" : "google play", "titre" : "La malédiction de l'anneau",
  * "detail" : { pages : 509, auteur : "Edouard Brasey", bd : "true" } } }
@@ -29,27 +31,14 @@ public class MongoDbInsertTest extends EmbedMongo {
 	/** Nombre de pages du livre "La malédiction de l'anneau". */
 	private static final int NB_PAGES_MALEDICTION_DE_L_ANNEAU = 509;
 
-	/** Nom de la table servant pour les tests. */
-	private static final String TABLE_NAME = "testCollection";
-
-	/** Objet représentant la table de test. */
-	private DBCollection dbCollection;
-
 	/**
-	 * Collection associée à la table.
+	 * Vérification que les données passées ont bien été persistées en fin de
+	 * chaque tests.
 	 */
-	private void initCollection() {
-		this.dbCollection = getMongo().getDB(DATABASE_NAME).createCollection(
-				TABLE_NAME, new BasicDBObject());
-	}
+	@After
+	public final void verifyCollection() {
 
-	/**
-	 * Vérification que les données passées ont bien été persistées.
-	 */
-	private void verifyCollection() {
-
-		DBCollection dbCollectionTest = getMongo().getDB(DATABASE_NAME)
-				.getCollection(TABLE_NAME);
+		DBCollection dbCollectionTest = getDbCollection();
 
 		assertNotNull(dbCollectionTest);
 		assertEquals(1L, dbCollectionTest.count());
@@ -60,8 +49,6 @@ public class MongoDbInsertTest extends EmbedMongo {
 	 */
 	@Test
 	public final void testInsertBasicDBObject() {
-
-		initCollection();
 
 		BasicDBObject document = new BasicDBObject();
 		document.put("bibliothèque", "google play");
@@ -74,9 +61,7 @@ public class MongoDbInsertTest extends EmbedMongo {
 
 		document.put("detail", documentDetail);
 
-		dbCollection.insert(document);
-
-		verifyCollection();
+		getDbCollection().insert(document);
 	}
 
 	/**
@@ -84,8 +69,6 @@ public class MongoDbInsertTest extends EmbedMongo {
 	 */
 	@Test
 	public final void testInsertBasicDBObjectBuilder() {
-
-		initCollection();
 
 		BasicDBObjectBuilder documentBuilder = BasicDBObjectBuilder.start()
 				.add("bibliothèque", "google play")
@@ -97,9 +80,7 @@ public class MongoDbInsertTest extends EmbedMongo {
 
 		documentBuilder.add("detail", documentBuilderDetail.get());
 
-		dbCollection.insert(documentBuilder.get());
-
-		verifyCollection();
+		getDbCollection().insert(documentBuilder.get());
 	}
 
 	/**
@@ -107,8 +88,6 @@ public class MongoDbInsertTest extends EmbedMongo {
 	 */
 	@Test
 	public final void testInsertMap() {
-
-		initCollection();
 
 		Map<String, Object> documentMap = new HashMap<String, Object>();
 		documentMap.put("bibliothèque", "google play");
@@ -121,9 +100,7 @@ public class MongoDbInsertTest extends EmbedMongo {
 
 		documentMap.put("detail", documentMapDetail);
 
-		dbCollection.insert(new BasicDBObject(documentMap));
-
-		verifyCollection();
+		getDbCollection().insert(new BasicDBObject(documentMap));
 	}
 
 	/**
@@ -132,8 +109,6 @@ public class MongoDbInsertTest extends EmbedMongo {
 	@Test
 	public final void testInsertJson() {
 
-		initCollection();
-
 		String json = "{\"bibliothèque\" : \"google play\","
 				+ "\"titre\" : \"La malédiction de l'anneau\","
 				+ "\"detail\" : {\"pages\" : 509,"
@@ -141,8 +116,11 @@ public class MongoDbInsertTest extends EmbedMongo {
 
 		DBObject dbObject = (DBObject) JSON.parse(json);
 
-		dbCollection.insert(dbObject);
+		getDbCollection().insert(dbObject);
+	}
 
-		verifyCollection();
+	@Override
+	protected final void insertData() {
+		// Pas de données à insérer pour les tests.
 	}
 }

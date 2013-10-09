@@ -82,6 +82,7 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<configuration>
 						<mavenExecutorId>forked-path</mavenExecutorId>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
 					</configuration>
 				</plugin>
 
@@ -151,6 +152,12 @@
 			</dependency>
 
 			<dependency>
+				<groupId>org.mongodb.morphia</groupId>
+				<artifactId>morphia</artifactId>
+				<version>${morphia-version}</version>
+			</dependency>
+
+			<dependency>
 				<groupId>org.mongodb</groupId>
 				<artifactId>mongo-java-driver</artifactId>
 				<version>${mongo-java-driver.version}</version>
@@ -189,6 +196,7 @@
 
 		<mongo-java-driver.version>2.11.3</mongo-java-driver.version>
 		<embed-mongo.version>1.37</embed-mongo.version>
+		<morphia-version>0.105</morphia-version>
 		<jsoup.version>1.7.2</jsoup.version>
 		<junit.version>4.11</junit.version>
 

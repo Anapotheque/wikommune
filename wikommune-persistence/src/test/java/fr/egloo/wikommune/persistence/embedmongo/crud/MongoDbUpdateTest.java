@@ -6,7 +6,6 @@ import static org.junit.Assert.assertNotEquals;
 import org.junit.Test;
 
 import com.mongodb.BasicDBObject;
-import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
 
@@ -15,8 +14,8 @@ import fr.egloo.wikommune.persistence.embedmongo.EmbedMongo;
 //@formatter:off
 /**
  * 
- * Différentes manières de mise à jour des 3 enregistrements suivants dans
- * MongoDb.
+ * Différentes manières de mise à jour des 3 documents suivants dans une 
+ * collection MongoDb.
  * 
  * { "hosting" : "hostA", "type" : "vps", "clients" : 1000 }, 
  * { "hosting" : "hostB", "type" : "dedicated server", "clients" : 100 }, 
@@ -27,9 +26,6 @@ import fr.egloo.wikommune.persistence.embedmongo.EmbedMongo;
 //@formatter:on
 public class MongoDbUpdateTest extends EmbedMongo {
 
-	/** Nom de la table servant pour les tests. */
-	private static final String TABLE_NAME = "testCollection";
-
 	/** Constante valeur test. */
 	private static final int VALEUR_100 = 100;
 
@@ -39,25 +35,21 @@ public class MongoDbUpdateTest extends EmbedMongo {
 	/** Constante valeur test. */
 	private static final int VALEUR_10 = 10;
 
-	/** Objet représentant la table de test. */
-	private DBCollection dbCollection;
+	@Override
+	protected final void insertData() {
 
-	/**
-	 * Collection associée à la table.
-	 */
-	private void initCollection() {
-
-		this.dbCollection = getMongo().getDB(DATABASE_NAME).createCollection(
-				TABLE_NAME, new BasicDBObject());
-
-		dbCollection.insert((DBObject) JSON
-				.parse("{\"hosting\" : \"hostA\", \"type\" : \"vps\","
-						+ "\"clients\" : 1000 }"));
-		dbCollection.insert((DBObject) JSON.parse("{ \"hosting\" : \"hostB\", "
-				+ "\"type\" : \"dedicated server\"," + "\"clients\" : 100 }"));
-		dbCollection.insert((DBObject) JSON
-				.parse("{ \"hosting\" : \"hostC\", \"type\" : \"vps\","
-						+ "\"clients\" : 900 }"));
+		getDbCollection().insert(
+				(DBObject) JSON
+						.parse("{\"hosting\" : \"hostA\", \"type\" : \"vps\","
+								+ "\"clients\" : 1000 }"));
+		getDbCollection().insert(
+				(DBObject) JSON.parse("{ \"hosting\" : \"hostB\", "
+						+ "\"type\" : \"dedicated server\","
+						+ "\"clients\" : 100 }"));
+		getDbCollection().insert(
+				(DBObject) JSON
+						.parse("{ \"hosting\" : \"hostC\", \"type\" : \"vps\","
+								+ "\"clients\" : 900 }"));
 	}
 
 	/**
@@ -67,8 +59,6 @@ public class MongoDbUpdateTest extends EmbedMongo {
 	@Test
 	public final void testUpdateSet() {
 
-		initCollection();
-
 		BasicDBObject newDocument = new BasicDBObject().append("$set",
 				new BasicDBObject().append("clients", VALEUR_110));
 
@@ -76,12 +66,12 @@ public class MongoDbUpdateTest extends EmbedMongo {
 				"hostB");
 
 		assertEquals(Integer.valueOf(VALEUR_100),
-				dbCollection.findOne(searchQuery).get("clients"));
+				getDbCollection().findOne(searchQuery).get("clients"));
 
-		dbCollection.update(searchQuery, newDocument);
+		getDbCollection().update(searchQuery, newDocument);
 
 		assertEquals(Integer.valueOf(VALEUR_110),
-				dbCollection.findOne(searchQuery).get("clients"));
+				getDbCollection().findOne(searchQuery).get("clients"));
 	}
 
 	/**
@@ -92,8 +82,6 @@ public class MongoDbUpdateTest extends EmbedMongo {
 	@Test
 	public final void testUpdateInc() {
 
-		initCollection();
-
 		BasicDBObject newDocument = new BasicDBObject().append("$inc",
 				new BasicDBObject().append("clients", VALEUR_10));
 
@@ -101,12 +89,12 @@ public class MongoDbUpdateTest extends EmbedMongo {
 				"hostB");
 
 		assertEquals(Integer.valueOf(VALEUR_100),
-				dbCollection.findOne(searchQuery).get("clients"));
+				getDbCollection().findOne(searchQuery).get("clients"));
 
-		dbCollection.update(searchQuery, newDocument);
+		getDbCollection().update(searchQuery, newDocument);
 
 		assertEquals(Integer.valueOf(VALEUR_110),
-				dbCollection.findOne(searchQuery).get("clients"));
+				getDbCollection().findOne(searchQuery).get("clients"));
 	}
 
 	/**
@@ -116,19 +104,17 @@ public class MongoDbUpdateTest extends EmbedMongo {
 	@Test
 	public final void testUpdateMulti() {
 
-		initCollection();
-
 		BasicDBObject updateQuery = new BasicDBObject().append("$set",
 				new BasicDBObject().append("clients", "888"));
 
 		BasicDBObject searchQuery = new BasicDBObject().append("type", "vps");
 
 		assertNotEquals("888",
-				dbCollection.find(searchQuery).next().get("clients"));
+				getDbCollection().find(searchQuery).next().get("clients"));
 
-		dbCollection.updateMulti(searchQuery, updateQuery);
+		getDbCollection().updateMulti(searchQuery, updateQuery);
 
-		assertEquals("888", dbCollection.find(searchQuery).next()
-				.get("clients"));
+		assertEquals("888",
+				getDbCollection().find(searchQuery).next().get("clients"));
 	}
 }
