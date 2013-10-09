@@ -9,7 +9,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
 
-import fr.egloo.wikommune.persistence.embedmongo.EmbedMongo;
+import fr.egloo.wikommune.persistence.embedmongo.AbstractMongoDbTest;
 
 //@formatter:off
 /**
@@ -24,7 +24,7 @@ import fr.egloo.wikommune.persistence.embedmongo.EmbedMongo;
  * @author cedric
  */
 //@formatter:on
-public class MongoDbUpdateTest extends EmbedMongo {
+public class MongoDbUpdateTest extends AbstractMongoDbTest {
 
 	/** Constante valeur test. */
 	private static final int VALEUR_100 = 100;

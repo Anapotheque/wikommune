@@ -16,7 +16,7 @@ import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
-import fr.egloo.wikommune.persistence.embedmongo.EmbedMongo;
+import fr.egloo.wikommune.persistence.embedmongo.AbstractMongoDbTest;
 
 //@formatter:off
 /**
@@ -33,7 +33,7 @@ import fr.egloo.wikommune.persistence.embedmongo.EmbedMongo;
  * @author cedric
  */
 // @formatter:on
-public class MongoDbQueryTest extends EmbedMongo {
+public class MongoDbQueryTest extends AbstractMongoDbTest {
 
 	/**
 	 * Valeur des données de tests.

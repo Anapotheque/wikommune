@@ -15,7 +15,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
 
-import fr.egloo.wikommune.persistence.embedmongo.EmbedMongo;
+import fr.egloo.wikommune.persistence.embedmongo.AbstractMongoDbTest;
 
 /**
  * Différentes manières d'insertion des documents suivants dans une collection
@@ -26,7 +26,7 @@ import fr.egloo.wikommune.persistence.embedmongo.EmbedMongo;
  * 
  * @author cedric
  */
-public class MongoDbInsertTest extends EmbedMongo {
+public class MongoDbInsertTest extends AbstractMongoDbTest {
 
 	/** Nombre de pages du livre "La malédiction de l'anneau". */
 	private static final int NB_PAGES_MALEDICTION_DE_L_ANNEAU = 509;
