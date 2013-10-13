@@ -39,7 +39,10 @@
 				    
 				    <h1>{{yourName}}</h1>
 					<hr/>
-	
+					
+					<h1>{{firstname}}</h1>
+					<hr/>
+		
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vehicula ut magna fermentum fermentum. Sed pharetra elit quis nisi lacinia facilisis. Praesent non elit a arcu lobortis scelerisque. Suspendisse in egestas tellus, sed pretium enim. Quisque dapibus pellentesque libero ac dictum. Nulla tristique gravida rutrum. Proin venenatis tellus ut varius vulputate. Nullam ut rhoncus tellus. Cras at enim urna. Pellentesque dignissim ultrices eros, at vehicula erat placerat ut.
 					<br/><br/>
 					Nunc imperdiet ipsum at erat sodales, sollicitudin dignissim libero cursus. Nullam quis luctus lacus, eu sagittis lorem. Integer eu volutpat tortor. Quisque accumsan odio id turpis semper, facilisis ornare odio mollis. Integer justo augue, cursus id arcu in, pretium venenatis nisl. Proin ac dolor a lorem aliquet pellentesque sit amet id magna. Aenean posuere sapien in mi sollicitudin, et dapibus metus porttitor. Proin pharetra, est nec feugiat ultricies, nisi augue ultricies lectus, vitae commodo erat urna sit amet sapien. Sed id tellus congue, fringilla tortor vitae, tristique est.
@@ -59,6 +62,11 @@
         </div>
 	   	
 	   	<script src="/wikommune-web/angularJS/angular.min.js"></script>
-		
+		<script src="/wikommune-web/js/app.js"></script>
+	   	<script src="/wikommune-web/js/services.js"></script>
+	   	<script src="/wikommune-web/js/controllers.js"></script>
+	   	<script src="/wikommune-web/js/filters.js"></script>
+	   	<script src="/wikommune-web/js/directives.js"></script>
+	   			
 	</body>
 </html>
