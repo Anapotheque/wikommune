@@ -1,0 +1,1 @@
+<script src="/wikommune-web/angularJS/angular.min.js"></script>
