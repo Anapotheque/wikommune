@@ -1,0 +1,22 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- TEMPLATE -->
+    <definition name="template" template="/WEB-INF/pages/template/template.jsp">
+        <put-attribute name="meta" value="/WEB-INF/pages/template/meta.jsp" />
+        <put-attribute name="header" value="/WEB-INF/pages/template/header.jsp" />
+        <put-attribute name="navigation" value="/WEB-INF/pages/template/navigation.jsp" />
+        <put-attribute name="breadcrumbs" value="/WEB-INF/pages/template/breadcrumbs.jsp" />
+        <put-attribute name="aside" value="/WEB-INF/pages/template/aside.jsp" />
+        <put-attribute name="section" value="/WEB-INF/pages/template/section.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/pages/template/footer.jsp" />
+        <put-attribute name="scripts" value="/WEB-INF/pages/template/scripts.jsp" />
+    </definition>
+	
+	<!-- ACCUEIL -->
+    <definition name="accueil" extends="template">
+    	<put-attribute name="section" value="/WEB-INF/pages/accueil.jsp" />
+    </definition>
+    
+</tiles-definitions>

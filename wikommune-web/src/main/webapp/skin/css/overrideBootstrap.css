@@ -1,0 +1,29 @@
+body {
+	background			: url("/wikommune-web/skin/img/hd-wallpapers-5.jpg") fixed no-repeat;
+	color				: #555;
+}
+hr {margin:10px 0;}
+form {margin:0;}
+input,input[type="text"],input[type="password"] {margin-bottom:0;}
+
+.ui-accordion .ui-accordion-content {padding:10px;}
+
+/* ROND ROUGE */
+ul {
+	margin				: 0;
+    padding				: 0 0 0 15px;
+    list-style			: disc;
+}
+ul li {
+	padding				: 0 0 10px 0;
+	color				: #B22C1B;
+}
+ul li:last-child {
+	padding				: 0;
+}
+ul li span,
+ul li p,
+ul b,
+ul a{
+	color				: #555555;
+}
