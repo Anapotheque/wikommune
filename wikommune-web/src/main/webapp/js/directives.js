@@ -3,7 +3,7 @@
 /* Directives */
 
 
-angular.module('wikommune.directives', []).
+angular.module('wikommune-web.directives', []).
   directive('appVersion', ['version', function(version) {
     return function(scope, elm, attrs) {
       elm.text(version);

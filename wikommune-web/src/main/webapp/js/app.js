@@ -1,8 +1,9 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('wikommune', ['wikommune.filters', 'wikommune.services', 'wikommune.directives', 'wikommune.controllers']).
+angular.module('wikommune-web', ['wikommune-web.filters', 'wikommune-web.services', 'wikommune-web.directives', 'wikommune-web.controllers']).
     config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-        $routeProvider.otherwise({redirectTo: '/view1'});
+        $routeProvider.when('/', {templateUrl: '/wikommune-web/view/communes.jsp', controller: 'CommunesControlleur'});
+        $routeProvider.when('/:commune', {templateUrl: '/wikommune-web/view/communes.jsp', controller: 'CommunesControlleur'});
+        $routeProvider.otherwise({redirectTo: '/:commune'});
     }]);

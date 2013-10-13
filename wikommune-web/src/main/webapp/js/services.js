@@ -1,11 +1,12 @@
-var services = angular.module('fr.egloo.wikommune.web.service', ['ngResource']);
+'use strict';
 
-services.factory('UserFactory', function ($resource) {
-    return $resource('/fr/egloo/wikommune/web/communes', {}, {
-        query: {
-            method: 'GET',
-            params: {},
-            isArray: false
-        }
-    })
-});
+/* Services */
+
+var services = angular.module('wikommune-web.services', ['ngResource']);
+
+services.factory('CommuneFactory', ['$resource',
+   function($resource){
+	   return $resource('/wikommune-web/rest/communes/:commune', {}, {
+		   query: {method:'GET', params:{commune:'commune'}, isArray:false}
+   });
+}]);
